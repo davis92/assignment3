@@ -10,7 +10,7 @@ public class CPSC112_Assignment3 {
 
   public static void main(String[] args) {
     makeMySecret();
-    isGameOver("1234");
+    isGameOver("a234");
     isGameOver("4321");
     isGameOver("2567");
     isGameOver("1432");
@@ -42,7 +42,6 @@ public class CPSC112_Assignment3 {
 	  
 	  String mySecret = ""+ secret[0] + "" + ""+ secret[1] + "" + ""+ secret[2] + "" +""+ secret[3] + "";
 	  
-	  System.out.println(mySecret);
 	  
     if (DEBUG)
     {
@@ -50,11 +49,41 @@ public class CPSC112_Assignment3 {
     }
   }
 
-  public static boolean isGuessValid(String input) {
+  public static boolean isGuessValid(String input) 
+  {
     // Part 2 code goes here
+	  
+	  {  
+		  try  
+		  {  
+		   int num = Integer.parseInt(input); 
+		   return true;
+		  }  
+		  catch(NumberFormatException nfe)  
+		  {  
+			System.out.println("Input must be a 4-digit number with digits between 1 and 7.");
+		    return false;  
+		  }    
+		}
+	  	  
   }
 
-  public static boolean isGameOver(String input) {
-    // Parts 3 and 4 code goes here
+  public static boolean isGameOver(String input) 
+  {
+	  int match = 0;
+	  int place = 0;
+	  isGuessValid (input);
+	  
+	  if (isGuessValid(input) == true)
+	  {
+		  
+		  
+	  System.out.println("Your Guess is: " + input + " Your Result is " + match + "," + place);
+	  return true;
+	  }
+	  else
+	  {
+		  return false;
+	  }
   }
 }
