@@ -24,6 +24,8 @@ public class CPSC112_Assignment3 {
     isGameOver("2567");
     isGameOver("1432");
     isGameOver("9999");
+    isGameOver("99999");
+    isGameOver("199");
   }
 
   public static void makeMySecret() {
@@ -56,6 +58,14 @@ public class CPSC112_Assignment3 {
   {
     // Part 2 code goes here
 	  
+	 if (input.length() != 4)
+	  {
+		  System.out.println("Input must be a 4-digit number with digits between 1 and 7.");
+		  return false;
+	  }
+	  
+	 else 
+		 
 	  {  
 		  try  
 		  {  
@@ -92,6 +102,7 @@ public class CPSC112_Assignment3 {
 				  System.out.println("Input must be a 4-digit number with digits between 1 and 7.");
 				  return false;
 			  }
+	
 			  else
 			  {
 				  return true; 
