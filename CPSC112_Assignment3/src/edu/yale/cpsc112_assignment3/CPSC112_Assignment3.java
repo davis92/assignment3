@@ -83,7 +83,7 @@ public class CPSC112_Assignment3 {
 		  int y = Integer.parseInt(t);
 		  int z = Integer.parseInt(q);
 		  
-		  System.out.println(r);
+		  /*System.out.println(r);
 		  //System.out.println(a);
 		  System.out.println(w);
 		  
@@ -97,7 +97,7 @@ public class CPSC112_Assignment3 {
 		  
 		  //System.out.println(d);
 		  System.out.println(q);
-		  System.out.println(z);
+		  System.out.println(z);*/
 		  
 		  if (a == w )
 		  {
@@ -189,15 +189,15 @@ public class CPSC112_Assignment3 {
 		  place++;
 		  }  
 	
-		  if (match != 4)
-		  {
+		  //if (match != 4)
+		  //{
 			  System.out.println("Your Guess is: " + input + " Your Result is " + match + "," + place);
-		  }
+		  //}
 		  
-		  else
-		  {
-			  System.out.println("Your Guess is: " + input + " is perfect!!! Congratulations!!!");
-		  }
+		  //else
+		  //{
+			  //System.out.println("Your Guess is: " + input + " is perfect!!! Congratulations!!!");
+		  //}
 		  return true;
 	  }
 	  
