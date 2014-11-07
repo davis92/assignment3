@@ -15,6 +15,7 @@ public class CPSC112_Assignment3 {
   public static int exception = 3;
   public static int previousvalue = 0;
   public static int highguess = 0;
+  public static boolean lie = false; 
   
   public static void main(String[] args) 
   {
@@ -23,13 +24,11 @@ public class CPSC112_Assignment3 {
     isGameOver("4321");
     isGameOver("2567");
     isGameOver("1432");
-    isGameOver("9999");
-    isGameOver("99999");
-    isGameOver("199");
   }
 
   public static void makeMySecret() {
-     // Part 1 code goes here (please leave the next few lines at the end of the makeMySecret method)
+     
+	  // Part 1 code goes here (please leave the next few lines at the end of the makeMySecret method)
 	 	  	  
 	  a = 1 + r.nextInt(7);
 	  
@@ -123,10 +122,13 @@ public class CPSC112_Assignment3 {
 	  {
 		  int match = 0;
 		  int place = 0;
+		  int place2 = 0;
+		  int match2 = 0;
+		  int dice = r.nextInt(3) +1; //to lie?
+		  int dice2 = r.nextInt(2) +1; //change place or match?
 		  
 		  String mySecret = ""+ a + "" + ""+ b + "" + ""+ c + "" +""+ d + "";
 		  int currentguess = Integer.parseInt(input);
-		  //int highguess = 0000;
 		  
 		  String r = input.substring(0,1);
 		  String s = input.substring(1,2);
@@ -231,6 +233,61 @@ public class CPSC112_Assignment3 {
 	
 		  if (place != 4)
 		  {
+			  // Boolean goes here. Random generator 1 to 3. 1 is lie assuming Boolean is true. If not, reset boolean and do not lie.
+			  
+			  if (dice == 1 && lie == true)
+			  {
+
+				  if (match == 0)
+				  {
+					  match2 = (int) Math.random()*4;
+					  lie = false;
+				  }
+			  
+				  else if (dice2 == 1)
+				  {
+
+					  do
+					  { place2 = (int) Math.random()*3;
+					  } while (place2 > match);
+					  
+					  if (place2 == place)
+					  {
+						  if (place == 3)
+						  {
+							  place2--;
+						  }
+						  
+						  else if (place == 0)
+						  {
+							  place2++;
+						  }
+					  }
+						  
+					  place = place2;
+					  lie = false;
+					  
+				  }
+				  
+				  else //gotta change match from (match, place)
+				  {
+					  do
+					  {
+					  match2 = (int) Math.random()*4;
+					  } while (match == match2);
+					 
+					  match = match2;
+					  lie = false;
+					  
+				  }
+			  }
+			  
+			  else
+				  
+			  {
+				  lie = true;
+			  }
+			  
 			  System.out.println("Your Guess is: " + input + " Your Result is " + match + "," + place);
 			  
 			  if (currentguess < highguess)
