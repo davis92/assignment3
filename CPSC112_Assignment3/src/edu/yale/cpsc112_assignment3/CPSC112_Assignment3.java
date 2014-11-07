@@ -39,7 +39,7 @@ public class CPSC112_Assignment3 {
 	  } while (a==d||b==d||c==d);
 	  
 	  String mySecret = ""+ a + "" + ""+ b + "" + ""+ c + "" +""+ d + "";
-	  
+	  	  
 	  
     if (DEBUG)
     {
@@ -73,118 +73,135 @@ public class CPSC112_Assignment3 {
 		  int match = 0;
 		  int place = 0;
 		  
-		  char w = input.charAt(0);
-		  char x = input.charAt(1);
-		  char y = input.charAt(2);
-		  char z = input.charAt(3);
+		  String r = input.substring(0,1);
+		  String s = input.substring(1,2);
+		  String t = input.substring(2,3);
+		  String q = input.substring(3,4);
+		  
+		  int w = Integer.parseInt(r);
+		  int x = Integer.parseInt(s);
+		  int y = Integer.parseInt(t);
+		  int z = Integer.parseInt(q);
+		  
+		  System.out.println(r);
+		  //System.out.println(a);
+		  System.out.println(w);
+		  
+		  System.out.println(s);
+		  System.out.println(x);
+		  //System.out.println(b);
+		  
+		  //System.out.println(c);
+		  System.out.println(y);
+		  System.out.println(t);
+		  
+		  //System.out.println(d);
+		  System.out.println(q);
+		  System.out.println(z);
 		  
 		  if (a == w )
 		  {
-		  boolean aw = true;
+			  match++;
 		  place++;
 		  }
 		  
 		  if (a == x )
 		  {
-		  boolean ax = true;
+		  match++;
 		  }
 		  
 		  if (a == y)
 		  {
-		  boolean ay = true;
+		  match++;
 		  }
 		  
 		  if (a == z)
 		  {
-		  boolean az = true;
+		  match++;
 		  }
 
 		  // b time
 		  
 		  if (b == w )
 		  {
-		  boolean bw = true;
+			  match++;
 		  }
 		  
 		  if (b == x )
 		  {
-		  boolean bx = true;
+			  match++;
 		  place++;
 		  }
 		  
 		  if (b == y)
 		  {
-		  boolean by = true;
+			  match++;
 		  }
 		  
 		  if (b == z)
 		  {
-		  boolean bz = true;
+			  match++;
 		  }  
 		  
 		  // c
 		  
 		  if (c == w )
 		  {
-		  boolean cw = true;
+			  match++;
 		  }
 		  
 		  if (c == x )
 		  {
-		  boolean cx = true;
+			  match++;
 		  }
 		  
 		  if (c == y)
 		  {
-		  boolean cy = true;
+			  match++;
 		  place++;
 		  }
 		  
 		  if (c == z)
 		  {
-		  boolean cz = true;
+			  match++;
 		  }  
 		  
 		  //d
 		  
 		  if (d == w )
 		  {
-		  boolean dw = true;
+			  match++;
 		  }
 		  
 		  if (d == x )
 		  {
-		  boolean dx = true;
+			  match++;
 		  }
 		  
 		  if (d == y)
 		  {
-		  boolean dy = true;
+			  match++;
 		  }
 		  
 		  if (d == z)
 		  {
-		  boolean dz = true;
+			  match++;
 		  place++;
 		  }  
+	
+		  if (match != 4)
+		  {
+			  System.out.println("Your Guess is: " + input + " Your Result is " + match + "," + place);
+		  }
 		  
-
-			  
-		  match = 1;
-		  match = 2;
-		  match = 3;
-		  match = 4;
-				 
-		  place = 1;
-		  place = 2;
-		  place = 3;
-		  place = 4; 
-
-		
-		  
-	  System.out.println("Your Guess is: " + input + " Your Result is " + match + "," + place);
-	  return true;
+		  else
+		  {
+			  System.out.println("Your Guess is: " + input + " is perfect!!! Congratulations!!!");
+		  }
+		  return true;
 	  }
+	  
+	  
 	  else
 	  {
 		  return false;
