@@ -8,17 +8,22 @@ public class CPSC112_Assignment3 {
   public static boolean DEBUG = true;
   public static Random r = new Random();
 
-  public static int a = 0; //chapter on global variable
+  public static int a = 0; //this makes a global variable - chapter on global variable
   public static int b = 0;
   public static int c = 0;
   public static int d = 0;
+  public static int exception = 3;
+  public static int previousvalue = 0;
+  public static int highguess = 0;
   
-  public static void main(String[] args) {
+  public static void main(String[] args) 
+  {
     makeMySecret();
     isGameOver("1234");
     isGameOver("4321");
     isGameOver("2567");
     isGameOver("1432");
+    isGameOver("9999");
   }
 
   public static void makeMySecret() {
@@ -54,8 +59,43 @@ public class CPSC112_Assignment3 {
 	  {  
 		  try  
 		  {  
-		   int num = Integer.parseInt(input); 
-		   return true;
+			  String r = input.substring(0,1);
+			  String s = input.substring(1,2);
+			  String t = input.substring(2,3);
+			  String q = input.substring(3,4);
+			  
+			  int w = Integer.parseInt(r);
+			  int x = Integer.parseInt(s);
+			  int y = Integer.parseInt(t);
+			  int z = Integer.parseInt(q); 
+		   
+			  if (w < 1 || w > 7)
+			  {
+				  System.out.println("Input must be a 4-digit number with digits between 1 and 7.");
+				  return false;
+			  }
+			  
+			  else if (x < 1 || x > 7)
+			  {
+				  System.out.println("Input must be a 4-digit number with digits between 1 and 7.");
+				  return false;
+			  }
+			  
+			  else if (y < 1 || y > 7)
+			  {
+				  System.out.println("Input must be a 4-digit number with digits between 1 and 7.");
+				  return false;
+			  }
+			  
+			  else if (z < 1 || z > 7)
+			  {
+				  System.out.println("Input must be a 4-digit number with digits between 1 and 7.");
+				  return false;
+			  }
+			  else
+			  {
+				  return true; 
+			  }
 		  }  
 		  catch(NumberFormatException nfe)  
 		  {  
@@ -73,6 +113,10 @@ public class CPSC112_Assignment3 {
 		  int match = 0;
 		  int place = 0;
 		  
+		  String mySecret = ""+ a + "" + ""+ b + "" + ""+ c + "" +""+ d + "";
+		  int currentguess = Integer.parseInt(input);
+		  //int highguess = 0000;
+		  
 		  String r = input.substring(0,1);
 		  String s = input.substring(1,2);
 		  String t = input.substring(2,3);
@@ -83,22 +127,7 @@ public class CPSC112_Assignment3 {
 		  int y = Integer.parseInt(t);
 		  int z = Integer.parseInt(q);
 		  
-		  /*System.out.println(r);
-		  //System.out.println(a);
-		  System.out.println(w);
-		  
-		  System.out.println(s);
-		  System.out.println(x);
-		  //System.out.println(b);
-		  
-		  //System.out.println(c);
-		  System.out.println(y);
-		  System.out.println(t);
-		  
-		  //System.out.println(d);
-		  System.out.println(q);
-		  System.out.println(z);*/
-		  
+
 		  if (a == w )
 		  {
 			  match++;
@@ -189,15 +218,43 @@ public class CPSC112_Assignment3 {
 		  place++;
 		  }  
 	
-		  //if (match != 4)
-		  //{
+		  if (place != 4)
+		  {
 			  System.out.println("Your Guess is: " + input + " Your Result is " + match + "," + place);
-		  //}
+			  
+			  if (currentguess < highguess)
+				  
+				  if (exception > 0)
+				  {
+					  exception--;
+					  System.out.println("Your guess was lower than allowed. You have " + exception + " exceptions remaining.");
+					  
+				  }
+				  
+				  if (exception == 0)
+				  {
+					  System.out.println("You're out of exceptions and you've guessed too high! The secret was " + mySecret);
+	
+					  exception = 3;
+					  makeMySecret();
+					  
+					  System.out.println("I've reset your exceptions and the secret number so you can try again ");
+					  
+				  }
+		  }
 		  
-		  //else
-		  //{
-			  //System.out.println("Your Guess is: " + input + " is perfect!!! Congratulations!!!");
-		  //}
+		  else
+		  {
+			  System.out.println("Your Guess: " + input + " is perfect!!! Congratulations!!!");
+		  }
+		  
+		  previousvalue = Integer.parseInt(input);
+		  
+		  if (previousvalue > highguess)
+		  {
+			  highguess = previousvalue;
+		  }
+		  
 		  return true;
 	  }
 	  
