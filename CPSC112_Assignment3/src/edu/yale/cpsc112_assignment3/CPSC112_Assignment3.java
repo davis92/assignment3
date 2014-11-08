@@ -12,7 +12,7 @@ public class CPSC112_Assignment3 {
   public static int b = 0;
   public static int c = 0;
   public static int d = 0;
-  public static int exception = 3;
+  public static int exception = 3; 
   public static int previousvalue = 0;
   public static int highguess = 0;
   public static boolean lie = false; 
@@ -271,11 +271,15 @@ public class CPSC112_Assignment3 {
 				  
 				  else //gotta change match from (match, place)
 				  {
-					  do
+					
+					  match2 = match + (int) Math.random()*4;
+					  
+					  while (match2 > 4)
 					  {
-					  match2 = (int) Math.random()*4;
-					  } while (match == match2);
-					 
+						  match2 = match + (int) Math.random()*4;
+						  System.out.println("works");
+					  }
+					  
 					  match = match2;
 					  lie = false;
 					  
